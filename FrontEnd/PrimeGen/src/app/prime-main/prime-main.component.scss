@@ -1,0 +1,32 @@
+$grey : #f4f4f4;
+$bright-blue: #00aef9;
+$blue: #00409f;
+$red: #ff0000;
+$green: #01923e;
+
+form {
+  input, select {
+      margin-bottom: 10px;        
+  }
+
+  .help-block {
+      color: $red;
+      font-size: 12px;
+      position: relative;
+      display: block;
+      margin: -10px 0 10px;
+  }
+
+  
+}
+
+.result-container{
+    margin: 20px 0;
+    list-style-type: none;
+    padding: 0;    
+  }
+
+  ul li {
+    display: inline-block; 
+    padding-right: 10px;
+  }

@@ -1,0 +1,29 @@
+<div class="container">
+    <form [formGroup]="primeForm">
+        <div class="mb-3">
+            <label for="maxPrimeNumber" class="form-label">Input Value</label>
+            <input type="text" id="maxPrimeNumber"  class="form-control"  placeholder="" aria-label="MaxPrimeNumber" formControlName="maxPrimeNumber">
+        </div>
+        <span class="help-block" *ngIf="f.get('maxPrimeNumber')?.invalid && f.get('maxPrimeNumber')?.dirty">
+            <span *ngIf="f.get('maxPrimeNumber')?.errors?.['required']">Input Value is required!</span>
+            <span *ngIf="f.get('maxPrimeNumber')?.errors?.['max']">Input value should be in range of  1 to 100!</span>
+            <span *ngIf="f.get('maxPrimeNumber')?.errors?.['min']">Input value should be in range of  1 to 100!</span>
+        </span>
+
+        <div class="btn-group">
+            <button type="button"  class="btn btn-primary"  (click)="generatePrime()">Generate Prime</button>
+            <button type="button" class="btn btn-light" (click)="onCancel()">Cancel</button>
+        </div>   
+
+        <div *ngIf="primeResponse">
+            <ul class="result-container" *ngIf="primeResult && primeResult.length>0">
+                <p class="fw-semibold fst-italic">{{primeResult.length}} prime numbers generated for {{primeResponse.rangeEnd}}.</p>
+                <li *ngFor="let prime of primeResult">
+                    <a><span class="badge rounded-pill text-bg-success">{{prime}}</span> </a>
+                </li>
+            </ul>
+            <p *ngIf="primeResult && primeResult.length==0 && primeResponse.rangeEnd!=0" class="fw-semibold fst-italic">{{primeResult.length}} prime numbers generated for {{primeResponse.rangeEnd}}.</p>
+        </div>
+    </form>
+</div>
+
